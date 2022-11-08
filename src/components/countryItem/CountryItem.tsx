@@ -10,14 +10,14 @@ interface ICountryItemProps {
 }
 
 export const CountryItem = ({ countryData, refresh }: ICountryItemProps) => {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleEdit = () => {
-    setOpen(true);
+    setIsOpen(true);
   };
 
   return (
-    <div>
+    <>
       <div className="countryItem">
         <div>{countryData.Id}</div>
         <div>{countryData.Symbol}</div>
@@ -29,11 +29,11 @@ export const CountryItem = ({ countryData, refresh }: ICountryItemProps) => {
         </div>
       </div>
       <CountryItemDialog
-        open={open}
+        isOpen={isOpen}
         id={countryData.Id}
-        setOpen={setOpen}
+        setIsOpen={setIsOpen}
         refresh={refresh}
       />
-    </div>
+    </>
   );
 };

@@ -1,9 +1,2 @@
-@import './components/countryItem/countryItem.css';
-
-
-.app-flexbox {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+@import "./components/countryItem/countryItem.css";
+@import "./globalStyles/globalStyles.css";

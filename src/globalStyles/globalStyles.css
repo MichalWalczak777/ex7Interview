@@ -1,0 +1,7 @@
+.countryItem {
+  display: flex;
+}
+
+.countryItem div {
+  width: 100px;
+}

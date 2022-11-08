@@ -12,14 +12,14 @@ import { Label } from "../../models/labelEnum";
 
 interface ICountryItemDialogProps {
   id: number;
-  open: boolean;
-  setOpen: Dispatch<SetStateAction<boolean>>;
+  isOpen: boolean;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
   refresh: () => void;
 }
 
 export const CountryItemDialog = ({
-  open,
-  setOpen,
+  isOpen,
+  setIsOpen,
   refresh,
   id,
 }: ICountryItemDialogProps) => {
@@ -29,7 +29,7 @@ export const CountryItemDialog = ({
   });
 
   const handleSave = async () => {
-    setOpen(false);
+    setIsOpen(false);
     await axios.patch(`${ApiUrl.COUNTRIES}(${id})`, {
       Symbol: formFields.symbol,
       Nazwa: formFields.name,
@@ -38,7 +38,7 @@ export const CountryItemDialog = ({
   };
 
   const handleClose = async () => {
-    setOpen(false);
+    setIsOpen(false);
   };
 
   const handleCountryChanges = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,7 +50,7 @@ export const CountryItemDialog = ({
   };
 
   return (
-    <Dialog open={open} onClose={handleClose}>
+    <Dialog open={isOpen} onClose={handleClose}>
       <DialogTitle>{Label.EDIT_COUNTRY}</DialogTitle>
       <DialogContent>
         <label>{Label.SYMBOL}</label>
